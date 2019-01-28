@@ -16,13 +16,12 @@
         android:layout_marginBottom="64dp"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="none"
+        android:inputType="textLongMessage|textPersonName|text|textCapSentences|textAutoComplete|textImeMultiLine"
         android:labelFor="@id/enterText"
         app:layout_constraintBottom_toTopOf="@+id/sendButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:targetApi="o" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sendButton"
