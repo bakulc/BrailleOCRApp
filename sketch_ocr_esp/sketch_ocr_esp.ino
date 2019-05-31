@@ -2,11 +2,9 @@
 # include <WiFiClient.h>
 # include <ESP8266WebServer.h>
 
-const char* ssid = "Be Happy";
-const char* password = "anitya123";
+const char* ssid = "Braille OCR";
+const char* password = "12345678  ";
 WiFiServer server(80);
-
-
 
 
 void setup() {
@@ -19,24 +17,20 @@ void setup() {
   WiFi.softAP(ssid, password);
   IPAddress myIP = WiFi.softAPIP(); //Get IP address
   server.begin();
-  Serial.println("HTTP server started");
-  Serial.println(myIP);
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
-
-
+  //Serial.println("HTTP server started");
+  //Serial.println(myIP);
 }
+
 
 void loop() {
   // put your main code here, to run repeatedly:
   WiFiClient client = server.available();
+
   if( !client ) {
-    digitalWrite(LED_BUILTIN, HIGH);
     return;
   }
-  Serial.println("Client Connected");
-  digitalWrite(LED_BUILTIN, LOW);
 
   String request = client.readStringUntil('\n');
+  request.remove(0, 5);
   Serial.println(request);
 }
